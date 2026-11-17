@@ -59,7 +59,7 @@ td {
   color: #474977;
 }
 
-.single-view[open] {
+/*.single-view[open] {
   position: fixed;
   inset: 0;
   width: 100%;
@@ -98,4 +98,4 @@ td {
   background: white;
   border: 0;
   cursor: pointer;
-}
+}*/
