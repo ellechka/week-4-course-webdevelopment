@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 
 const MediaRow = (props) => {
-  const {item} = props;
+  const {item, setSelectedItem} = props;
   return (
       <tr>
         <td>
-          <img src={item.thumbnail} alt={item.title} />
+          <button type="button" onClick={() => setSelectedItem(item)}>
+            <img src={item.thumbnail} alt={item.title} />
+          </button>
         </td>
         <td>{item.title}</td>
         <td>{item.description}</td>
@@ -26,6 +28,7 @@ MediaRow.propTypes = {
     filesize: PropTypes.number,
     media_type: PropTypes.string,
   }).isRequired,
+  setSelectedItem: PropTypes.func.isRequired,
 };
 
 export default MediaRow;
