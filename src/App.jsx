@@ -2,14 +2,14 @@ import './App.css';
 import Home from './view/Home.jsx';
 
 import {Route, BrowserRouter, Routes} from 'react-router';
-import Layout from './views/Layout';
+import Layout from './components/Layout.jsx';
 import Profile from "./view/Profile.jsx";
 import Single from "./view/Single.jsx";
 import Upload from "./view/Upload.jsx";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
