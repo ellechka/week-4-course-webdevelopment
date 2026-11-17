@@ -1,16 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import {useLocation, useNavigate} from "react-router";
 
-const Single = (props) => {
+const Single = () => {
+  const {state} = useLocation();
+  const item = state;
+  const navigate = useNavigate();
+
+  if (!item) {
+    return <p>Select media file on home page</p>
+  }
+
   return (
     <div>
-      
+      <button type="button" onClick={() => navigate(-1)}>Go back</button>
+      <h2>{item.title}</h2>
+      <p>{item.description}</p>
+
+      {item.media_type.startsWith('image/') ? (
+        <img src={item.filename} alt={item.title} />
+      ) : item.media_type.startsWith('video/') ? (
+        <video src={item.filename} controls />
+      ) : null}
     </div>
   );
-};
-
-Single.propTypes = {
-  
 };
 
 export default Single;
