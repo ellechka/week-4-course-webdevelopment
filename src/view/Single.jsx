@@ -1,0 +1,28 @@
+import {useLocation, useNavigate} from "react-router";
+
+const Single = () => {
+  const {state} = useLocation();
+  const item = state;
+  const navigate = useNavigate();
+
+  if (!item) {
+    return <p>Select media file on home page</p>
+  }
+
+  return (
+    <div className="single-container">
+      <button className="go-back-btn" type="button" onClick={() => navigate(-1)}>← Go back</button>
+      <h2>{item.title}</h2>
+      <p>{item.description}</p>
+      <p>Owner: {item.username}</p>
+
+      {item.media_type.startsWith('image/') ? (
+        <img src={item.filename} alt={item.title} />
+      ) : item.media_type.startsWith('video/') ? (
+        <video src={item.filename} controls />
+      ) : null}
+    </div>
+  );
+};
+
+export default Single;
