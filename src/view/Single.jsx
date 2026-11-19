@@ -10,10 +10,11 @@ const Single = () => {
   }
 
   return (
-    <div>
-      <button type="button" onClick={() => navigate(-1)}>Go back</button>
+    <div className="single-container">
+      <button className="go-back-btn" type="button" onClick={() => navigate(-1)}>← Go back</button>
       <h2>{item.title}</h2>
       <p>{item.description}</p>
+      <p>Owner: {item.username}</p>
 
       {item.media_type.startsWith('image/') ? (
         <img src={item.filename} alt={item.title} />
