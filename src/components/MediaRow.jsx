@@ -14,6 +14,7 @@ const MediaRow = ({item}) => {
         <td>{new Date(item.created_at).toLocaleString('fi-FI')}</td>
         <td>{item.filesize}</td>
         <td>{item.media_type}</td>
+        <td>{item.username}</td>
       </tr>
   );
 }
@@ -27,6 +28,7 @@ MediaRow.propTypes = {
     created_at: PropTypes.string,
     filesize: PropTypes.number,
     media_type: PropTypes.string,
+    username: PropTypes.string,
   }).isRequired,
 };
 
