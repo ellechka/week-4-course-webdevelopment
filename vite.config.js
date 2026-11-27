@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
-  base: '~ellinak/week-5-course-webdevelopment/context',
+  base: '~ellinak/week-5-course-webdevelopment/upload',
 })
