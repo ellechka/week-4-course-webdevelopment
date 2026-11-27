@@ -1,5 +1,5 @@
 import useForm from "../hooks/formHooks.js";
-import {useAuthentication} from "../hooks/apiHooks.js";
+import {useUserContext} from "../hooks/contextHooks.js";
 
 
 const LoginForm = () => {
@@ -8,18 +8,8 @@ const LoginForm = () => {
     password: '',
   };
 
-  const {postLogin} = useAuthentication();
-
-  const doLogin = async (formInputs) => {
-    try {
-      const loginResult = await postLogin(formInputs);
-
-      localStorage.setItem("token", loginResult.token);
-      window.location.href = "/";
-    } catch (error) {
-      console.error("Login failed: ", error);
-    }
-  };
+  const {handleLogin} = useUserContext();
+  const doLogin = (formInputs) => handleLogin(formInputs);
 
   const {handleInputChange, handleSubmit} = useForm(doLogin, initValues);
 
