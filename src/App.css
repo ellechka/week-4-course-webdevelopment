@@ -1,0 +1,157 @@
+.auth-page {
+  display: grid;
+  gap: 1rem;
+  width: min(100% - 2rem, 28rem);
+  margin: clamp(2rem, 8vh, 5rem) auto;
+}
+
+.auth-card {
+  padding: clamp(1.5rem, 5vw, 2.25rem);
+  border: 1px solid #d7d4e8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgb(69 79 115 / 12%);
+}
+
+.auth-card h1 {
+  margin: 0 0 1.5rem;
+  color: #5b1c37;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.auth-form > div {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.auth-form label {
+  color: #474977;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #bbb8cf;
+  border-radius: 8px;
+  background: #fff;
+  color: #292a40;
+  font: inherit;
+}
+
+.auth-form input:focus-visible {
+  border-color: #576490;
+  outline: 3px solid rgb(87 100 144 / 20%);
+}
+
+.auth-form button,
+.auth-switch {
+  min-height: 2.75rem;
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-form button {
+  margin-top: 0.25rem;
+  background: #576490;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.auth-form button:hover {
+  background: #454f73;
+}
+
+.auth-switch {
+  background: transparent;
+  color: #576490;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.auth-switch:hover {
+  color: #454f73;
+}
+
+.auth-form button:focus-visible,
+.auth-switch:focus-visible {
+  outline: 3px solid rgb(87 100 144 / 35%);
+  outline-offset: 3px;
+}
+
+.profile-card {
+  width: min(100% - 2rem, 40rem);
+  margin: clamp(2rem, 8vh, 5rem) auto;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border: 1px solid #d7d4e8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgb(69 79 115 / 12%);
+}
+
+.profile-eyebrow {
+  margin: 0 0 0.5rem;
+  color: #576490;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.profile-username {
+  margin: 0 0 1.75rem;
+  color: #5b1c37;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.profile-details {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.profile-details > div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) 2fr;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  background: #f5f4fa;
+}
+
+.profile-details dt {
+  color: #576490;
+  font-weight: 700;
+}
+
+.profile-details dd {
+  margin: 0;
+  color: #292a40;
+  overflow-wrap: anywhere;
+}
+
+.profile-message {
+  color: #474977;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .profile-details > div {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
