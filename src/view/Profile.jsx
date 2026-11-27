@@ -1,43 +1,9 @@
-import { useEffect, useState } from "react";
-import {useUser} from "../hooks/apiHooks.js";
+import {useUserContext} from "../hooks/contextHooks.js";
 
 const Profile = () => {
-  const {getUserByToken} = useUser();
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState("");
+  const {user, isLoading} = useUserContext();
 
-  const token = localStorage.getItem("token");
-
-  useEffect(() => {
-    if (!token) return;
-
-    const loadUser = async () => {
-      try {
-        const userData = await getUserByToken(token);
-        setUser(userData);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
-
-    loadUser();
-  }, [getUserByToken, token]);
-
-  if (!token) {
-    return (
-      <section className="profile-card profile-message">
-        <p>You are not logged in.</p>
-      </section>
-    );
-  }
-  if (error) {
-    return (
-      <section className="profile-card profile-message" role="alert">
-        <p>{error}</p>
-      </section>
-    );
-  }
-  if (!user) {
+  if (isLoading || !user) {
     return (
       <section className="profile-card profile-message">
         <p>Loading profile...</p>
